@@ -10,6 +10,12 @@ RUN mvn dependency:go-offline -B
 
 # 소스 코드를 복사하여 패키징 수행 (테스트는 스킵하여 빌드 시간 단축)
 COPY src ./src
+
+# [핵심] JSP를 JAR에 포함시키기 위해 webapp → META-INF/resources로 복사
+# (소스 코드는 그대로, 컨테이너 빌드 컨텍스트 안에서만 재배치)
+RUN mkdir -p src/main/resources/META-INF/resources \
+    && cp -r src/main/webapp/. src/main/resources/META-INF/resources/
+
 RUN mvn clean package -DskipTests
 
 # 2. Run Stage (경량 JRE 17 Alpine 기반 멀티 스테이징)

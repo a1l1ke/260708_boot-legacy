@@ -3,6 +3,7 @@ package org.example.bootlegacy.step2.app;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+// 중복 메인 클래스 빌드
 //@SpringBootApplication
 //public class EntryApplication {
 //
