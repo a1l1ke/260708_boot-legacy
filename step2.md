@@ -24,9 +24,9 @@
 
 ```mermaid
 graph TD
-    subgraph [담임 선생님 EntryApplication의 시야]
-        TeacherA[선생님: EntryApplication <br> 위치: step2.app 교실] -->|출석체크| StudentA[학생: EntryApplication 자체]
-        TeacherA -.->|교실 밖이라 안 보임 ❌| StudentB[학생: ScanController <br> 위치: step2 교실]
+    subgraph sg1 ["담임 선생님 EntryApplication의 시야"]
+        TeacherA["선생님: EntryApplication (위치: step2.app 교실)"] -->|출석체크| StudentA["학생: EntryApplication 자체"]
+        TeacherA -.->|교실 밖이라 안 보임| StudentB["학생: ScanController (위치: step2 교실)"]
     end
 ```
 
@@ -42,13 +42,12 @@ graph TD
 `@SpringBootApplication`은 아래 3가지 핵심 어노테이션의 조합으로 구성된 메타 어노테이션입니다.
 
 ```mermaid
-classDiagram
-    class SpringBootApplication {
-        <<meta-annotation>>
-        @SpringBootConfiguration
-        @EnableAutoConfiguration
-        @ComponentScan
-    }
+graph TD
+    subgraph SpringBootApplication ["@SpringBootApplication 구성 요소"]
+        A["@SpringBootConfiguration"]
+        B["@EnableAutoConfiguration"]
+        C["@ComponentScan"]
+    end
 ```
 
 1. **`@SpringBootConfiguration`**: 스프링 부트 설정을 제공하는 클래스임을 선언 (`@Configuration`과 동일한 기능).
