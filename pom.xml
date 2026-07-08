@@ -30,6 +30,32 @@
         <java.version>17</java.version>
     </properties>
     <dependencies>
+        <!--    1. WAR를 통해서 외부 톰캣으로 구동 -> 대신 Jasper Engine을 포함해서 JAR로 구동 가능    -->
+        <!--    https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper/11.0.23    -->
+        <!-- Source: https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+<!--            <version>11.0.23</version>-->
+<!--            <scope>compile</scope>-->
+<!--            여기 내부에 JSP/해석 엔진이 내장 -->
+        </dependency>
+        <!--    2. JSP가 없음, JSTL은 더더욱이 없음    -->
+        <!-- Source: https://mvnrepository.com/artifact/jakarta.servlet.jsp.jstl/jakarta.servlet.jsp.jstl-api -->
+        <dependency>
+            <groupId>jakarta.servlet.jsp.jstl</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+            <version>3.0.2</version>
+            <scope>compile</scope>
+        </dependency>
+        <!-- Source: https://mvnrepository.com/artifact/org.glassfish.web/jakarta.servlet.jsp.jstl -->
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+            <version>3.0.1</version>
+            <scope>runtime</scope>
+        </dependency>
+        <!--    Servlet에 대한 최신 의존성은 spring-boot-starter-webmvc에 포함됨 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webmvc</artifactId>
