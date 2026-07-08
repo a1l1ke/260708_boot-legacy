@@ -11,6 +11,8 @@
     <groupId>org.example</groupId>
     <artifactId>boot-legacy</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <!--  webapp 경로 인식을 위해  -->
+    <packaging>war</packaging>
     <name>boot-legacy</name>
     <description>boot-legacy</description>
     <url/>
