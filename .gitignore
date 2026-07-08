@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# 환경변수/시크릿 관리
+.env
